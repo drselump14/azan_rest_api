@@ -28,7 +28,6 @@ defmodule AzanRestApi.Router do
 
     {latitude, _} = conn.params["latitude"] |> :string.to_float()
     {longitude, _} = conn.params["longitude"] |> :string.to_float()
-    
 
     body = AzanCalculator.call(latitude, longitude) |> Jason.encode!()
     send_resp(conn, 200, body)
